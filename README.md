@@ -1,6 +1,6 @@
 # go-sf-apm-lib
 
-go-sf-apm-lib collects the profile key, project name, and app name to send the trace data to SnappyFlow. These are collected automatically from the environment variables set by the user.
+This package collects the profile key, project name, and app name to send the trace data to SnappyFlow. These are collected automatically from the environment variables set by the user.
 The environment variables to be set are:
 - **SF_PROJECT_NAME**: specify your project name here
 - **SF_APP_NAME**: specify your app name here

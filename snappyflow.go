@@ -123,7 +123,23 @@ func getProfileData(key string) (string, string, error) {
 func setEnvVariables(traceURL string, profileID string, tags Tags) error {
 	globalLabels := fmt.Sprintf(GlobalLabels, tags[ProjectName], tags[AppName], profileID)
 	err := os.Setenv(ElasticAPMServerURL, traceURL)
+	if err != nil {
+		return err
+	}
 	err = os.Setenv(ElasticAPMGlobalLabels, globalLabels)
+	if err != nil {
+		return err
+	}
+	// default environment variables
+	err = os.Setenv(ElasticAPMSpanFramesMinDuration, FramesMinDuration)
+	if err != nil {
+		return err
+	}
+	err = os.Setenv(ElasticAPMStackTraceLimit, StackTraceLimit)
+	if err != nil {
+		return err
+	}
+	err = os.Setenv(ElasticAPMVerifyServerCert, VerifyServerCert)
 	if err != nil {
 		return err
 	}
